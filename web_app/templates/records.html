@@ -1,0 +1,53 @@
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "records" %}
+
+{% block content %}
+
+    <h1>Salty Hacker News</h1>
+
+    <p>{{ message }}</p>
+
+    <table style="width:100%">
+        <tr>
+          <th>row</th>
+          <th>by</th>
+          <th>id</th>
+          <th>kids</th>
+          <th>parent</th>
+          <th>text</th>
+          <th>time</th>
+          <th>type</th>
+          <th>title</th>
+          <th>url</th>
+          <th>vader_score</th>
+          <th>neg_score</th>
+        </tr>
+    
+        {% if records %}
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.row_id }}</td>
+                    <td>{{ record.by }}</td>
+                    <td>{{ record.id }}</td>
+                    <td>{{ record.value }}</td>
+                    <td>{{ record.kids }}</td>
+                    <td>{{ record.parent }}</td>
+                    <td>{{ record.text }}</td>
+                    <td>{{ record.time }}</td>
+                    <td>{{ record.type }}</td>
+                    <td>{{ record.title }}</td>
+                    <td>{{ record.url }}</td>
+                    <td>{{ record.vader_score }}</td>
+                    <td>{{ record.neg_score }}</td>
+                </tr>
+            {% endfor %}
+
+        {% else %}
+            <p>Records not found.</p>
+        {% endif %}
+
+    </table>
+
+
+
+{% endblock %}
