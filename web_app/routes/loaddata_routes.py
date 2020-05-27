@@ -6,7 +6,7 @@ from web_app.models import DB, Record
 
 loaddata_routes = Blueprint("loaddata_routes", __name__)
 
-CSV_FILE_PATH = os.path.join(os.path.dirname(__file__), "..", "hackernews.csv")
+CSV_FILE_PATH = os.path.join(os.path.dirname(__file__), "..", "hackernews5.csv")
 
 @loaddata_routes.route("/loaddata")
 def refresh():
@@ -23,15 +23,15 @@ def refresh():
         record.row_id = row[0]
         record.by = row[1]
         record.id = row[2]
-        record.kids = row[3]
-        record.parent = row[4]
-        record.text = row[5]
-        record.time = row[6]
-        record.type = row[7]
-        record.title = row[8]
-        record.url = row[9]
-        record.vader_score = row[10]
-        record.neg_score = row[11]
+        # record.kids = row[3]
+        # record.parent = row[4]
+        record.text = row[3]
+        record.time = row[4]
+        record.type = row[5]
+        # record.title = row[8]
+        # record.url = row[9]
+        record.vader_score = row[6]
+        record.neg_score = row[7]
         DB.session.add(record)
 
         counter +=  1
